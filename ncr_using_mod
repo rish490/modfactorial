@@ -1,0 +1,23 @@
+ll fact[300001];
+ll ncr(ll n,ll r){
+    
+     if (n < r){
+        return 0;
+}
+    if (r == 0){
+        return 1;
+    }
+    ll ans=fact[n];
+    ans=moddiv(ans,fact[r]);
+    ans=moddiv(ans,fact[n-r]);
+    return ans;
+}
+void calc(ll N){
+    
+    ll curr=1;
+    fact[0]=1;
+    for(ll i=1;i<=N+1;i++){
+        fact[i]=modmult(fact[i-1],i);
+    }
+    return;
+}
